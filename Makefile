@@ -1,21 +1,21 @@
-/*
- *  This file is part of 'Conv-It' (https://github.com/FPrimon/conv-it).
- *  'Conv-It' is a program for iterative matrix convolution.
- *  Copyright © 2018 Francesco Primon.
- *
- *  'Conv-It' is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  any later version.
- *
- *  'Conv-It' is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with 'Conv-It'. If not, see <https://www.gnu.org/licenses/>.
- */
+#
+#	This file is part of 'Conv-It' (https://github.com/FPrimon/conv-it).
+#	'Conv-It' is a program for iterative matrix convolution.
+#	Copyright © 2018 Francesco Primon.
+#
+#	'Conv-It' is free software: you can redistribute it and/or modify
+#	it under the terms of the GNU General Public License as published by
+#	the Free Software Foundation, either version 3 of the License, or
+#	any later version.
+#
+#	'Conv-It' is distributed in the hope that it will be useful,
+#	but WITHOUT ANY WARRANTY; without even the implied warranty of
+#	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#	GNU General Public License for more details.
+#
+#	You should have received a copy of the GNU General Public License
+#	along with 'Conv-It'. If not, see <https://www.gnu.org/licenses/>.
+#
 OS_SIZE = $(shell uname -m | sed -e "s/i.86/32/" -e "s/x86_64/64/" -e "s/armv7l/32/")
 OS_ARCH = $(shell uname -m | sed -e "s/i386/i686/")
 
@@ -25,7 +25,7 @@ CXX = g++
 MPICXX = mpic++
 NVXX = nvcc -ccbin g++
 
-CXXFLAGS = -O2 -march=native -Wall -Wextra -Wpendantic -I$(INCLUDE_DIR) -I$(CUDA_DIR) -fopenmp
+CXXFLAGS = -O2 -march=native -Wall -Wextra -I$(INCLUDE_DIR) -I$(CUDA_DIR) -fopenmp
 NVXXFLAGS = -m${OS_SIZE} -I$(INCLUDE_DIR) -I$(CUDA_DIR)
 NVXXFLAGS += $(addprefix -Xcompiler ,$(CXXFLAGS))
 
@@ -37,12 +37,12 @@ CXX11FLAGS = -std=c++11
 
 # CUDA code generation flags
 #GENCODE_SM10    := -gencode arch=compute_10,code=sm_10	#deprecated
-GENCODE_SM20    := -gencode arch=compute_20,code=sm_20
+#GENCODE_SM20    := -gencode arch=compute_20,code=sm_20
 GENCODE_SM30    := -gencode arch=compute_30,code=sm_30
-#GENCODE_SM32    := -gencode arch=compute_32,code=sm_32
+GENCODE_SM32    := -gencode arch=compute_32,code=sm_32
 GENCODE_SM35    := -gencode arch=compute_35,code=sm_35
-#GENCODE_SM50    := -gencode arch=compute_50,code=sm_50
-#GENCODE_SMXX    := -gencode arch=compute_50,code=compute_50
+GENCODE_SM50    := -gencode arch=compute_50,code=sm_50
+GENCODE_SMXX    := -gencode arch=compute_50,code=compute_50
 GENCODE_FLAGS   ?= $(GENCODE_SM10) $(GENCODE_SM20) $(GENCODE_SM30) $(GENCODE_SM32) $(GENCODE_SM35) $(GENCODE_SM50) $(GENCODE_SMXX)
 
 #GENCODE_FLAGS = -arch=sm_20
@@ -121,12 +121,12 @@ conv_it_hybrid: $(HYBRID_SRC) $(DEPS) $(HYBRID_DEPS)
 #	$(CXX) $(CXXFLAGS) $(CXX11FLAGS) $(CUDA_CPP_SRC) -o $@ -c
 
 conv_it_cuda: $(CUDA_SRC) $(CUDA_DEPS)
-	$(NVXX) $(NVXXFLAGS) $(GENCODE_FLAGS) $(CUDA_SRC) -o $@
+	$(NVXX) $(NVXXFLAGS) $(NVXX11FLAGS) $(GENCODE_FLAGS) $(CUDA_SRC) -o $@
 
 run:
 	bash runAll.sh
 
 clean:
-	rm -f conv_it* *~
+	rm -f conv_it_*
 	
 #####################################################

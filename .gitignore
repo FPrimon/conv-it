@@ -2,3 +2,4 @@ addHeader
 convEnc
 header.cpp
 headerGPLv3.cpp
+conv_it_*
