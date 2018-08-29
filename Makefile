@@ -1,21 +1,21 @@
-#
-#	This file is part of 'Conv-It' (https://github.com/FPrimon/conv-it).
-#	'Conv-It' is a program for iterative matrix convolution.
-#	Copyright © 2018 Francesco Primon.
-#
-#	'Conv-It' is free software: you can redistribute it and/or modify
-#	it under the terms of the GNU General Public License as published by
-#	the Free Software Foundation, either version 3 of the License, or
-#	any later version.
-#
-#	'Conv-It' is distributed in the hope that it will be useful,
-#	but WITHOUT ANY WARRANTY; without even the implied warranty of
-#	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-#	GNU General Public License for more details.
-#
-#	You should have received a copy of the GNU General Public License
-#	along with 'Conv-It'. If not, see <https://www.gnu.org/licenses/>.
-#
+##
+ #  This file is part of 'Conv-It' (https://github.com/FPrimon/conv-it).
+ #  'Conv-It' is a program for iterative matrix convolution.
+ #  Copyright © 2018 Francesco Primon.
+ #
+ #  'Conv-It' is free software: you can redistribute it and/or modify
+ #  it under the terms of the GNU General Public License as published by
+ #  the Free Software Foundation, either version 3 of the License, or
+ #  any later version.
+ #
+ #  'Conv-It' is distributed in the hope that it will be useful,
+ #  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ #  GNU General Public License for more details.
+ #
+ #  You should have received a copy of the GNU General Public License
+ #  along with 'Conv-It'. If not, see <https://www.gnu.org/licenses/>.
+ ##
 OS_SIZE = $(shell uname -m | sed -e "s/i.86/32/" -e "s/x86_64/64/" -e "s/armv7l/32/")
 OS_ARCH = $(shell uname -m | sed -e "s/i386/i686/")
 
@@ -123,10 +123,10 @@ conv_it_hybrid: $(HYBRID_SRC) $(DEPS) $(HYBRID_DEPS)
 conv_it_cuda: $(CUDA_SRC) $(CUDA_DEPS)
 	$(NVXX) $(NVXXFLAGS) $(NVXX11FLAGS) $(GENCODE_FLAGS) $(CUDA_SRC) -o $@
 
-run:
+test:
 	bash runAll.sh
 
 clean:
-	rm -f conv_it_*
+	rm -rf conv_it_* log/ data/output/cuda* data/output/hybrid* data/output/st* data/output/omp* data/output/mpi*
 	
 #####################################################
