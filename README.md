@@ -52,6 +52,7 @@ In order to run properly, every *conv_it* executable needs the following argumen
 All files must contain *space-separated* integer values representing the entries of the matrix.
 
 OpenMP needs you to set the OMP\_NUM\_THREADS variable.
+
 MPI is enabled by launching the executable with
 ```sh
 mpirun -np P executable argument1 argument2 ...
@@ -61,4 +62,5 @@ where P is the number of processes.
 ---
 
 Tested on Ubuntu 16.04 LTS with gcc 5.4.0, GNU Make 4.1, OpenMPI 1.10.2, CUDA 9.2
+
 Copyright © 2018 Francesco Primon.
