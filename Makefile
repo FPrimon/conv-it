@@ -25,7 +25,7 @@ CXX = g++
 MPICXX = mpic++
 NVXX = nvcc -ccbin g++
 
-CXXFLAGS = -O2 -march=native -Wall -Wextra -I$(INCLUDE_DIR) -I$(CUDA_DIR) -fopenmp
+CXXFLAGS = -O2 -march=native -Wall -Wextra -Wpendantic -I$(INCLUDE_DIR) -I$(CUDA_DIR) -fopenmp
 NVXXFLAGS = -m${OS_SIZE} -I$(INCLUDE_DIR) -I$(CUDA_DIR)
 NVXXFLAGS += $(addprefix -Xcompiler ,$(CXXFLAGS))
 
