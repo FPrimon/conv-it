@@ -1,5 +1,7 @@
-addHeader
-convEnc
-header.cpp
-headerGPLv3.cpp
 conv_it_*
+log/
+data/output/st*
+data/output/omp*
+data/output/mpi*
+data/output/hybrid*
+data/output/cuda*

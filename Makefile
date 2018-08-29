@@ -56,7 +56,7 @@ GENCODE_FLAGS   ?= $(GENCODE_SM10) $(GENCODE_SM20) $(GENCODE_SM30) $(GENCODE_SM3
 # FOR EXAMPLE:
 # INCLUDE_DIR = include
 INCLUDE_DIR = include
-CUDA_DIR = /usr/local/cuda/include
+CUDA_DIR = /usr/local/cuda/include	# YOUR CUDA DIRECTORY
 
 # PUT HERE THE PATH TO YOUR HEADER FILES TO CORRECTLY RECOMPILE AT ANY CHANGE, IF ANY
 # FOR EXAMPLE:
@@ -123,7 +123,7 @@ conv_it_hybrid: $(HYBRID_SRC) $(DEPS) $(HYBRID_DEPS)
 conv_it_cuda: $(CUDA_SRC) $(CUDA_DEPS)
 	$(NVXX) $(NVXXFLAGS) $(NVXX11FLAGS) $(GENCODE_FLAGS) $(CUDA_SRC) -o $@
 
-test:
+test: compile
 	bash runAll.sh
 
 clean:

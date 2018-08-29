@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
 		return EXIT_FAILURE;
 	}
 	
-	mat.toFile(argv[8]);	// WHYYYYY ??
+	mat.toFile(argv[8]);
 	
 	return EXIT_SUCCESS;
 }
