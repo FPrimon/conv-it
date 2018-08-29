@@ -24,7 +24,7 @@ Once you have downloaded a copy of the repository run
 make compile
 ```
 
-This will create all five executables mentioned aboved. If you're interested in only one of them, select the appropriate target e.g.
+This will create all five executables mentioned above. If you're interested in only one of them, select the appropriate target e.g.
 ```sh
 make conv_it_cuda
 ```
@@ -38,7 +38,7 @@ make test
 You can change the settings of the test (such as version, number of threads/processes) by modifying directly the file *runAll.sh*.
 
 ### Passing arguments
-In order to run properly, carcefdfeg every *conv_it* executable needs the following arguments:
+In order to run properly, every *conv_it* executable needs the following arguments:
 
 1. no. of iterations
 2. no. of rows in the input matrix
@@ -51,4 +51,14 @@ In order to run properly, carcefdfeg every *conv_it* executable needs the follow
 
 All files must contain *space-separated* integer values representing the entries of the matrix.
 
+OpenMP needs you to set the OMP\_NUM\_THREADS variable.
+MPI is enabled by launching the executable with
+```sh
+mpirun -np P executable argument1 argument2 ...
+```
+where P is the number of processes.
+
+---
+
+Tested on Ubuntu 16.04 LTS with gcc 5.4.0, GNU Make 4.1, OpenMPI 1.10.2, CUDA 9.2
 Copyright © 2018 Francesco Primon.
