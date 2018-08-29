@@ -26,7 +26,7 @@ make compile
 
 This will create all five executables mentioned aboved. If you're interested in only one of them, select the appropriate target e.g.
 ```sh
-make conv\_it\_cuda
+make conv_it_cuda
 ```
 
 ### Testing
@@ -35,6 +35,20 @@ To launch an automated test type
 make test
 ```
 
-You can change the settings of the test (such as version, number of threads/processes) in runAll.sh.
+You can change the settings of the test (such as version, number of threads/processes) by modifying directly the file *runAll.sh*.
+
+### Passing arguments
+In order to run properly every *conv_it* executable needs the following arguments:
+
+1. no. of iterations
+2. no. of rows in the input matrix
+3. no. of columns in the input matrix
+4. no. of rows in the kernel
+5. no. of columns in the kernel
+6. name of the file containing the input matrix
+7. name of the file containing the kernel
+8. name of the output file
+
+All files must contain *space-separated* integer values representing the entries of the matrix.
 
 Copyright © 2018 Francesco Primon.
