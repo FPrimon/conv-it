@@ -11,7 +11,7 @@ Its purpose was to apply different parallelization methods to the same program. 
 2. *conv\_it\_omp*: parallelism is achieved via [OpenMP](https://www.openmp.org/ "Open Multi-Processing")
 3. *conv\_it\_mpi*: [MPI](https://www.mpi-forum.org/ "Message Parsing Interface") is used to distribute workload among processors
 4. *conv\_it\_hybrid*: enhanced by both OpenMP and MPI
-5. *conv\_it\_cuda*: runs on [CUDA](https://developer.nvidia.com/cuda-zone) capable GPU
+5. *conv\_it\_cuda*: runs on [CUDA](https://developer.nvidia.com/cuda-zone)-capable GPUs
 
 ## Instructions
 
