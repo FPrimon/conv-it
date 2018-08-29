@@ -30,7 +30,7 @@ make conv_it_cuda
 ```
 
 ### Testing
-To launch an automated test type
+To launch an automated test, type
 ```sh
 make test
 ```
@@ -38,7 +38,7 @@ make test
 You can change the settings of the test (such as version, number of threads/processes) by modifying directly the file *runAll.sh*.
 
 ### Passing arguments
-In order to run properly every *conv_it* executable needs the following arguments:
+In order to run properly, carcefdfeg every *conv_it* executable needs the following arguments:
 
 1. no. of iterations
 2. no. of rows in the input matrix
