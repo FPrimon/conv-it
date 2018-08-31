@@ -2,9 +2,9 @@
 
 ## Introduction
 
-[*conv-it*](https://github.com/FPrimon/conv-it "GitHub repository") is a program for computing iterative convolution of integer matrices.
+[*conv-it*](https://github.com/FPrimon/conv-it "GitHub repository") is a C++/C++11 program for computing iterative convolution of integer matrices.
 
-Originally it was an assignment for the *Algorithms and Parallel Computing* course I attended at [Politecnico di Milano](https://www.polimi.it/en).
+Originally it was written from scratch as an assignment for the *Algorithms and Parallel Computing* course I attended at [Politecnico di Milano](https://www.polimi.it/en).
 Its purpose was to apply different parallelization methods to the same program. That's why there are five different versions and their respective executable files:
 
 1. *conv\_it\_st*: single-threaded program
